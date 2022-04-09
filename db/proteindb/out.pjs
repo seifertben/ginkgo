@@ -1,0 +1,22 @@
+{
+  "version": "1.2",
+  "dbname": "out",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "NC_000852.fasta",
+  "number-of-letters": 137108,
+  "number-of-sequences": 802,
+  "last-updated": "2022-04-09T08:34:00",
+  "number-of-volumes": 1,
+  "bytes-total": 1276026,
+  "bytes-to-cache": 144419,
+  "files": [
+    "out.pdb",
+    "out.phr",
+    "out.pin",
+    "out.pot",
+    "out.psq",
+    "out.ptf",
+    "out.pto"
+  ]
+}
