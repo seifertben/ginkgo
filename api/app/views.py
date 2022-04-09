@@ -1,11 +1,15 @@
 import flask
 from flask import jsonify, request
-from app.utils import find_protein
 from app import app, db, q
 from app.models import User
 from rq.job import Job
-from app.worker import conn
+from worker import conn
+from app.utils import find_protein
 
+from Bio.Blast import NCBIWWW
+from Bio import SeqIO, Seq
+from Bio.Seq import Seq
+from Bio.Blast.Applications import NcbiblastxCommandline
 
 @app.route('/user', methods=['GET', 'POST'])
 def save_user():
@@ -21,18 +25,28 @@ def save_user():
 
 @app.route('/', methods=['POST'])
 def index():
+    # sequence = request.args.get('seq')
+    # job = q.enqueue_call(
+    #     func=find_protein, args=(sequence,), result_ttl=10
+    # )
+    # print(job.get_id())
+    # return jsonify(sequence)
     sequence = request.args.get('seq')
-    job = q.enqueue_call(
-        func=find_protein, args=(sequence,), result_ttl=10
-    )
-    print(job.get_id())
-    return jsonify(sequence)
+    # record = SeqIO.read("m_cold.fasta", format="fasta")
+    # result = NCBIWWW.qblast("blastp", "nr", Seq(sequence), 
+    #     entrez_query = "txid10506[ORGN]"
+    # )
+    blastn_cline = NcbiblastxCommandline(query = Seq(sequence), db = "proteindb/out", outfmt = 5, out = "results.xml")
+    stdout, stderr = blastn_cline()
+    with open('./results.xml', 'w') as save_file: 
+        blast_results = result.read() 
+        save_file.write(blast_results)
+    print(sequence)
+
 
 @app.route("/results/<job_key>", methods=['GET'])
 def get_results(job_key):
-
     job = Job.fetch(job_key, connection=conn)
-
     if job.is_finished:
         return str(job.result), 200
     else:

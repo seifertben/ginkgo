@@ -5,12 +5,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login      import LoginManager
 from flask_bcrypt     import Bcrypt
 from rq import Queue
-from app.worker import conn
+from worker import conn
 
 # Grabs the folder where the script runs.
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
+app.app_context().push()
 
 app.config.from_object('app.config.Config')
 
