@@ -4,6 +4,7 @@ from flask            import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login      import LoginManager
 from flask_bcrypt     import Bcrypt
+from flask_cors import CORS
 from rq import Queue
 from worker import conn
 
@@ -11,7 +12,7 @@ from worker import conn
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-app.app_context().push()
+CORS(app)
 
 app.config.from_object('app.config.Config')
 
