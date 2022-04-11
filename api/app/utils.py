@@ -1,29 +1,10 @@
-from Bio.Blast import NCBIWWW
-from Bio import SeqIO, Seq
-from Bio.Seq import Seq
+from Bio.Blast import NCBIWWW, NCBIXML
 from flask import request
-from app import app
-from Bio.Blast import NCBIXML
-from app import app, db, q
+from app import app, db
 from app.models import Result
 import re
 
-def find_protein(sequence):
-    sequence = request.args.get('seq')
-    # record = SeqIO.read("m_cold.fasta", format="fasta")
-    with app.app_context():
-        result = NCBIWWW.qblast("blastp", "nr", Seq(sequence), 
-            entrez_query = "txid10506[ORGN]",
-            perc_ident = 100
-        )
-    with open('./results.xml', 'w') as save_file: 
-        blast_results = result.read() 
-        save_file.write(blast_results)
-    print(sequence)
-
-
 def parse_result(sequence):
-    E_VALUE_THRESH = 1e-20
     protein_name = ""
     protein_id = ""
     match_start = 0
@@ -34,7 +15,6 @@ def parse_result(sequence):
         if record.alignments:
             for align in record.alignments:
                 hit_def = align.hit_def
-                print(hit_def)
                 # Parse protein name and protein id out of search results.
                 p1 = re.compile("\[protein=([^\[]*)\]")
                 p2 = re.compile("\[protein_id=([^\[]*)\]")

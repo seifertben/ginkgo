@@ -130,7 +130,7 @@ function SearchContainer(props) {
                         setSearchResult(record);
                     }
                 })}
-                scroll={{ y: 300 }}
+                scroll={{ y: 250 }}
                 pagination={false}
 
             />
