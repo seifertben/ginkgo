@@ -12,5 +12,5 @@ COPY . .
 
 RUN makeblastdb -in db/mydb.fasta -dbtype nucl -out db/out
 
-# CMD python3 -m flask run --host=0.0.0.0 --port=$PORT
-CMD python3 -m flask run --host=0.0.0.0 --port=5000
+CMD python3 -m flask run --host=0.0.0.0 --port=$PORT
+# CMD python3 -m flask run --host=0.0.0.0 --port=5000

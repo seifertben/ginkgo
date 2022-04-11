@@ -3,7 +3,7 @@ import { Card } from 'antd';
 import styled from "styled-components";
 
 const StyledCard = styled(Card)`
-    margin-top: 5vh
+    margin-top: 2vh
 `
 
 function SearchResults(props) {
