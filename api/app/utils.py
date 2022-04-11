@@ -33,8 +33,8 @@ def parse_result(sequence):
     for record in NCBIXML.parse(open("results.xml")): 
         if record.alignments:
             for align in record.alignments:
+                match_found = True
                 hit_def = align.hit_def
-                print(hit_def)
                 # Parse protein name and protein id out of search results.
                 p1 = re.compile("\[protein=([^\[]*)\]")
                 p2 = re.compile("\[protein_id=([^\[]*)\]")
@@ -43,9 +43,6 @@ def parse_result(sequence):
                 protein_name = result1.group(1)
                 protein_id = result2.group(1)
                 for hsp in align.hsps:
-                    align_length = hsp.align_length
-                    if(align_length == len(sequence)):
-                        match_found = True
                     match_start = hsp.sbjct_start
                     match_end = hsp.sbjct_end
 

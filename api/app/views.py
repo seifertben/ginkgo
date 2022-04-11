@@ -30,7 +30,7 @@ def find_protein():
     f.write(sequence)
     f.close()
     print(sequence)
-    blastn_cline = NcbiblastnCommandline(query = "db/queries/query.fsa", db = "db/out", outfmt = 5, out = "results.xml", perc_identity = 100, max_target_seqs = 1)
+    blastn_cline = NcbiblastnCommandline(query = "db/queries/query.fsa", db = "db/out", outfmt = 5, out = "results.xml", perc_identity = 100, task="blastn-short", qcov_hsp_perc=100)
     stdout, stderr = blastn_cline()
     result = parse_result(sequence)
     match_found = result[0]
