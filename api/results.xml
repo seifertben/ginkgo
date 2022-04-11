@@ -7,7 +7,7 @@
   <BlastOutput_db>db/out</BlastOutput_db>
   <BlastOutput_query-ID>Query_1</BlastOutput_query-ID>
   <BlastOutput_query-def>No definition line</BlastOutput_query-def>
-  <BlastOutput_query-len>9</BlastOutput_query-len>
+  <BlastOutput_query-len>25</BlastOutput_query-len>
   <BlastOutput_param>
     <Parameters>
       <Parameters_expect>10</Parameters_expect>
@@ -23,21 +23,48 @@
   <Iteration_iter-num>1</Iteration_iter-num>
   <Iteration_query-ID>Query_1</Iteration_query-ID>
   <Iteration_query-def>No definition line</Iteration_query-def>
-  <Iteration_query-len>9</Iteration_query-len>
+  <Iteration_query-len>25</Iteration_query-len>
 <Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gnl|BL_ORD_ID|5857</Hit_id>
+  <Hit_def>lcl|NC_016072.1_cds_YP_004895056.1_1005 [gene=mg1005] [locus_tag=MegaChil _gp1005] [db_xref=GeneID:11256716] [protein=putative KilA-N domain-containing protein] [protein_id=YP_004895056.1] [location=1140725..1141156] [gbkey=CDS]</Hit_def>
+  <Hit_accession>5857</Hit_accession>
+  <Hit_len>432</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>50.0517</Hsp_bit-score>
+      <Hsp_score>25</Hsp_score>
+      <Hsp_evalue>5.68224e-08</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>25</Hsp_query-to>
+      <Hsp_hit-from>141</Hsp_hit-from>
+      <Hsp_hit-to>165</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>25</Hsp_identity>
+      <Hsp_positive>25</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>25</Hsp_align-len>
+      <Hsp_qseq>CCTTTCACAAGGAAATGAAGTTCTT</Hsp_qseq>
+      <Hsp_hseq>CCTTTCACAAGGAAATGAAGTTCTT</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
 </Iteration_hits>
   <Iteration_stat>
     <Statistics>
       <Statistics_db-num>7171</Statistics_db-num>
       <Statistics_db-len>5619237</Statistics_db-len>
-      <Statistics_hsp-len>7</Statistics_hsp-len>
-      <Statistics_eff-space>11138080</Statistics_eff-space>
+      <Statistics_hsp-len>13</Statistics_hsp-len>
+      <Statistics_eff-space>66312168</Statistics_eff-space>
       <Statistics_kappa>0.710602795216363</Statistics_kappa>
       <Statistics_lambda>1.37406312246009</Statistics_lambda>
       <Statistics_entropy>1.30724660390929</Statistics_entropy>
     </Statistics>
   </Iteration_stat>
-  <Iteration_message>No hits found</Iteration_message>
 </Iteration>
 </BlastOutput_iterations>
 </BlastOutput>

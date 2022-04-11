@@ -5,7 +5,13 @@ const headers = {
     "Access-Control-Allow-Origin": "*"
 }
 
-const url = "http://localhost:5000"
+const host = window.location.origin;
+
+let url = "https://ginkgo-demo-api.herokuapp.com"
+if (host.includes("http://localhost")) {
+    url = "http://localhost:5000"
+}
+
 
 const instance = axios.create({
     baseURL: url,
